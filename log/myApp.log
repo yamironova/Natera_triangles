@@ -1,0 +1,11 @@
+[INFO ] 2020-10-21 16:46:34.073 - GET request to /all has code response 200 and response body []
+[INFO ] 2020-10-21 16:46:34.658 - smokeTest start
+[INFO ] 2020-10-21 16:46:35.678 - GET request to /all has code response 200 and response body []
+[INFO ] 2020-10-21 16:46:36.757 - POST request with body {"input":"3.0;4.0;5.0"} has code response 200 and response body {"id":"2e0c3247-a053-4f1e-aa82-26da5c71fb51","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}
+[INFO ] 2020-10-21 16:46:37.801 - GET request to /2e0c3247-a053-4f1e-aa82-26da5c71fb51 has code response 200 and response body {"id":"2e0c3247-a053-4f1e-aa82-26da5c71fb51","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}
+[INFO ] 2020-10-21 16:46:38.862 - GET request to /2e0c3247-a053-4f1e-aa82-26da5c71fb51/area has code response 200 and response body {"result":6.0}
+[INFO ] 2020-10-21 16:46:40.472 - GET request to /2e0c3247-a053-4f1e-aa82-26da5c71fb51/perimeter has code response 200 and response body {"result":12.0}
+[INFO ] 2020-10-21 16:46:41.485 - GET request to /all has code response 200 and response body [{"id":"2e0c3247-a053-4f1e-aa82-26da5c71fb51","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}]
+[INFO ] 2020-10-21 16:46:42.550 - DELETE request to /2e0c3247-a053-4f1e-aa82-26da5c71fb51 has code response 200 has code response 
+[INFO ] 2020-10-21 16:46:43.545 - GET request to /2e0c3247-a053-4f1e-aa82-26da5c71fb51 has code response 404 and response body {"timestamp":1603288003122,"status":404,"error":"Not Found","exception":"com.natera.test.triangle.exception.NotFounException","message":"Not Found","path":"/triangle/2e0c3247-a053-4f1e-aa82-26da5c71fb51"}
+[INFO ] 2020-10-21 16:46:43.601 - smokeTest finish 
