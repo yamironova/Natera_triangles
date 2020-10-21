@@ -1,0 +1,16 @@
+{
+  "examples": [
+    {
+      "id": "27fd41ee-5c98-4912-84ea-3c71e0fe2da0",
+      "firstSide": 1.0,
+      "secondSide": 2.0,
+      "thirdSide": 2.5
+    }
+  ],
+  "required": [
+    "id",
+    "firstSide",
+    "secondSide",
+    "thirdSide"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "examples": [
+    [
+      {
+        "id": "99546bc7-c549-47dd-b6ab-d6e26565984a",
+        "firstSide": 3.0,
+        "secondSide": 4.0,
+        "thirdSide": 5.0
+      },
+      {
+        "id": "d885b132-46b3-4a38-925e-f94a107d374c",
+        "firstSide": 3.0,
+        "secondSide": 4.0,
+        "thirdSide": 5.0
+      }
+    ]
+  ],
+  "additionalItems": true,
+  "items": {
+    "$id": "#/items",
+    "anyOf": [
+      {
+        "examples": [
+          {
+            "id": "99546bc7-c549-47dd-b6ab-d6e26565984a",
+            "firstSide": 3.0,
+            "secondSide": 4.0,
+            "thirdSide": 5.0
+          }
+        ],
+        "required": [
+          "id",
+          "firstSide",
+          "secondSide",
+          "thirdSide"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "examples": [
+              "99546bc7-c549-47dd-b6ab-d6e26565984a"
+            ]
+          },
+          "firstSide": {
+            "type": "number",
+            "examples": [
+              3.0
+            ]
+          },
+          "secondSide": {
+            "type": "number",
+            "examples": [
+              4.0
+            ]
+          },
+          "thirdSide": {
+            "type": "number",
+            "examples": [
+              5.0
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "examples": [
+    {
+      "timestamp": 1602188671823,
+      "status": 404,
+      "error": "Not Found",
+      "exception": "com.natera.test.triangle.exception.NotFounException",
+      "message": "Not Found",
+      "path": "/triangle/31e99579-a611-40a2-8382-d590936ce153"
+    }
+  ],
+  "required": [
+    "timestamp",
+    "status",
+    "error",
+    "exception",
+    "message",
+    "path"
+  ]
+}

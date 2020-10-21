@@ -1,0 +1,20 @@
+{
+  "examples": [
+    {
+      "timestamp": 1602505295845,
+      "status": 405,
+      "error": "Method Not Allowed",
+      "exception": "org.springframework.web.HttpRequestMethodNotSupportedException",
+      "message": "Request method 'POST' not supported",
+      "path": "/triangle/bf8311ca-08f0-427d-8acb-92a16a43959a"
+    }
+  ],
+  "required": [
+    "timestamp",
+    "status",
+    "error",
+    "exception",
+    "message",
+    "path"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "examples": [
+    {
+      "timestamp": 1602174246834,
+      "status": 401,
+      "error": "Unauthorized",
+      "message": "No message available",
+      "path": "/triangle/null/perimeter"
+    }
+  ],
+  "required": [
+    "timestamp",
+    "status",
+    "error",
+    "message",
+    "path"
+  ]
+}
