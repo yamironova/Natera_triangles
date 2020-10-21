@@ -1,11 +1,55 @@
-[INFO ] 2020-10-21 16:46:34.073 - GET request to /all has code response 200 and response body []
-[INFO ] 2020-10-21 16:46:34.658 - smokeTest start
-[INFO ] 2020-10-21 16:46:35.678 - GET request to /all has code response 200 and response body []
-[INFO ] 2020-10-21 16:46:36.757 - POST request with body {"input":"3.0;4.0;5.0"} has code response 200 and response body {"id":"2e0c3247-a053-4f1e-aa82-26da5c71fb51","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}
-[INFO ] 2020-10-21 16:46:37.801 - GET request to /2e0c3247-a053-4f1e-aa82-26da5c71fb51 has code response 200 and response body {"id":"2e0c3247-a053-4f1e-aa82-26da5c71fb51","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}
-[INFO ] 2020-10-21 16:46:38.862 - GET request to /2e0c3247-a053-4f1e-aa82-26da5c71fb51/area has code response 200 and response body {"result":6.0}
-[INFO ] 2020-10-21 16:46:40.472 - GET request to /2e0c3247-a053-4f1e-aa82-26da5c71fb51/perimeter has code response 200 and response body {"result":12.0}
-[INFO ] 2020-10-21 16:46:41.485 - GET request to /all has code response 200 and response body [{"id":"2e0c3247-a053-4f1e-aa82-26da5c71fb51","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}]
-[INFO ] 2020-10-21 16:46:42.550 - DELETE request to /2e0c3247-a053-4f1e-aa82-26da5c71fb51 has code response 200 has code response 
-[INFO ] 2020-10-21 16:46:43.545 - GET request to /2e0c3247-a053-4f1e-aa82-26da5c71fb51 has code response 404 and response body {"timestamp":1603288003122,"status":404,"error":"Not Found","exception":"com.natera.test.triangle.exception.NotFounException","message":"Not Found","path":"/triangle/2e0c3247-a053-4f1e-aa82-26da5c71fb51"}
-[INFO ] 2020-10-21 16:46:43.601 - smokeTest finish 
+[INFO ] 2020-10-21 16:50:38.947 - GET request to /all has code response 200 and response body []
+[INFO ] 2020-10-21 16:50:39.531 - postInsteadGetAllTest start
+[INFO ] 2020-10-21 16:50:40.608 - POST request to /all has code response 405 and response body {"timestamp":1603288240145,"status":405,"error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/triangle/all"}
+[INFO ] 2020-10-21 16:50:41.188 - postInsteadGetAllTest finish 
+[INFO ] 2020-10-21 16:50:42.302 - GET request to /all has code response 200 and response body []
+[INFO ] 2020-10-21 16:50:42.312 - postInsteadGetSomethingTest start
+[INFO ] 2020-10-21 16:50:43.366 - POST request with body {"input":"3.0;4.0;5.0"} has code response 200 and response body {"id":"45eae340-bf5e-448f-aa5b-e87e5fc08312","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}
+[INFO ] 2020-10-21 16:50:44.380 - POST request to /45eae340-bf5e-448f-aa5b-e87e5fc08312 has code response 405 and response body {"timestamp":1603288243952,"status":405,"error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/triangle/45eae340-bf5e-448f-aa5b-e87e5fc08312"}
+[INFO ] 2020-10-21 16:50:45.481 - POST request to /45eae340-bf5e-448f-aa5b-e87e5fc08312/area has code response 405 and response body {"timestamp":1603288245014,"status":405,"error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/triangle/45eae340-bf5e-448f-aa5b-e87e5fc08312/area"}
+[INFO ] 2020-10-21 16:50:46.493 - POST request to /45eae340-bf5e-448f-aa5b-e87e5fc08312/perimeter has code response 405 and response body {"timestamp":1603288246061,"status":405,"error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/triangle/45eae340-bf5e-448f-aa5b-e87e5fc08312/perimeter"}
+[INFO ] 2020-10-21 16:50:46.524 - postInsteadGetSomethingTest finish 
+[INFO ] 2020-10-21 16:50:47.575 - GET request to /all has code response 200 and response body [{"id":"45eae340-bf5e-448f-aa5b-e87e5fc08312","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}]
+[INFO ] 2020-10-21 16:50:47.581 - wrongTokenPostRequest start
+[INFO ] 2020-10-21 16:50:48.577 - POST request with body {"input":"3.0;4.0;5.0"} has code response 401 and response body {"timestamp":1603288248152,"status":401,"error":"Unauthorized","message":"No message available","path":"/triangle"}
+[INFO ] 2020-10-21 16:50:48.586 - wrongTokenPostRequest finish 
+[INFO ] 2020-10-21 16:50:49.588 - GET request to /all has code response 200 and response body [{"id":"45eae340-bf5e-448f-aa5b-e87e5fc08312","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}]
+[INFO ] 2020-10-21 16:50:49.592 - wrongTokenGetSomethingRequest start
+[INFO ] 2020-10-21 16:50:50.570 - POST request with body {"input":"3.0;4.0;5.0"} has code response 200 and response body {"id":"6022400f-902b-4be0-98c4-cb179301fa45","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}
+[INFO ] 2020-10-21 16:50:51.590 - GET request to /6022400f-902b-4be0-98c4-cb179301fa45 has code response 401 and response body {"timestamp":1603288251162,"status":401,"error":"Unauthorized","message":"No message available","path":"/triangle/6022400f-902b-4be0-98c4-cb179301fa45"}
+[INFO ] 2020-10-21 16:50:52.580 - GET request to /6022400f-902b-4be0-98c4-cb179301fa45/area has code response 401 and response body {"timestamp":1603288252154,"status":401,"error":"Unauthorized","message":"No message available","path":"/triangle/6022400f-902b-4be0-98c4-cb179301fa45/area"}
+[INFO ] 2020-10-21 16:50:53.580 - GET request to /6022400f-902b-4be0-98c4-cb179301fa45/perimeter has code response 401 and response body {"timestamp":1603288253153,"status":401,"error":"Unauthorized","message":"No message available","path":"/triangle/6022400f-902b-4be0-98c4-cb179301fa45/perimeter"}
+[INFO ] 2020-10-21 16:50:54.599 - DELETE request to /6022400f-902b-4be0-98c4-cb179301fa45 has code response 200 has code response 
+[INFO ] 2020-10-21 16:50:54.600 - wrongTokenGetSomethingRequest finish 
+[INFO ] 2020-10-21 16:50:55.795 - GET request to /all has code response 200 and response body [{"id":"45eae340-bf5e-448f-aa5b-e87e5fc08312","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}]
+[INFO ] 2020-10-21 16:50:55.803 - wrongTokenDeleteRequest start
+[INFO ] 2020-10-21 16:50:56.797 - POST request with body {"input":"3.0;4.0;5.0"} has code response 200 and response body {"id":"31bfaf63-fcf2-4461-95b1-53af01e8eb5b","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}
+[INFO ] 2020-10-21 16:50:57.848 - DELETE request to /31bfaf63-fcf2-4461-95b1-53af01e8eb5b has code response 401 has code response {"timestamp":1603288257421,"status":401,"error":"Unauthorized","message":"No message available","path":"/triangle/31bfaf63-fcf2-4461-95b1-53af01e8eb5b"}
+[INFO ] 2020-10-21 16:50:58.840 - DELETE request to /31bfaf63-fcf2-4461-95b1-53af01e8eb5b has code response 200 has code response 
+[INFO ] 2020-10-21 16:50:58.841 - wrongTokenDeleteRequest finish 
+[INFO ] 2020-10-21 16:50:59.830 - GET request to /all has code response 200 and response body [{"id":"45eae340-bf5e-448f-aa5b-e87e5fc08312","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}]
+[INFO ] 2020-10-21 16:50:59.833 - wrongTokenGetAllRequest start
+[INFO ] 2020-10-21 16:51:00.803 - GET request to /all has code response 401 and response body {"timestamp":1603288260378,"status":401,"error":"Unauthorized","message":"No message available","path":"/triangle/all"}
+[INFO ] 2020-10-21 16:51:00.812 - wrongTokenGetAllRequest finish 
+[INFO ] 2020-10-21 16:51:01.808 - GET request to /all has code response 200 and response body [{"id":"45eae340-bf5e-448f-aa5b-e87e5fc08312","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}]
+[INFO ] 2020-10-21 16:51:01.812 - noTokenGetSomethingRequest start
+[INFO ] 2020-10-21 16:51:02.790 - POST request with body {"input":"3.0;4.0;5.0"} has code response 200 and response body {"id":"d13a01f1-c417-45ce-82fd-4a1bae93124c","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}
+[INFO ] 2020-10-21 16:51:03.818 - GET request to /d13a01f1-c417-45ce-82fd-4a1bae93124c has code response 401 and response body {"timestamp":1603288263389,"status":401,"error":"Unauthorized","message":"No message available","path":"/triangle/d13a01f1-c417-45ce-82fd-4a1bae93124c"}
+[INFO ] 2020-10-21 16:51:04.849 - GET request to /d13a01f1-c417-45ce-82fd-4a1bae93124c/area has code response 401 and response body {"timestamp":1603288264405,"status":401,"error":"Unauthorized","message":"No message available","path":"/triangle/d13a01f1-c417-45ce-82fd-4a1bae93124c/area"}
+[INFO ] 2020-10-21 16:51:05.904 - GET request to /d13a01f1-c417-45ce-82fd-4a1bae93124c/perimeter has code response 401 and response body {"timestamp":1603288265469,"status":401,"error":"Unauthorized","message":"No message available","path":"/triangle/d13a01f1-c417-45ce-82fd-4a1bae93124c/perimeter"}
+[INFO ] 2020-10-21 16:51:06.927 - DELETE request to /d13a01f1-c417-45ce-82fd-4a1bae93124c has code response 200 has code response 
+[INFO ] 2020-10-21 16:51:06.928 - noTokenGetSomethingRequest finish 
+[INFO ] 2020-10-21 16:51:07.951 - GET request to /all has code response 200 and response body [{"id":"45eae340-bf5e-448f-aa5b-e87e5fc08312","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}]
+[INFO ] 2020-10-21 16:51:07.957 - noTokenGetAllRequest start
+[INFO ] 2020-10-21 16:51:08.952 - GET request to /all has code response 401 and response body {"timestamp":1603288268523,"status":401,"error":"Unauthorized","message":"No message available","path":"/triangle/all"}
+[INFO ] 2020-10-21 16:51:08.965 - noTokenGetAllRequest finish 
+[INFO ] 2020-10-21 16:51:09.964 - GET request to /all has code response 200 and response body [{"id":"45eae340-bf5e-448f-aa5b-e87e5fc08312","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}]
+[INFO ] 2020-10-21 16:51:09.970 - noTokenPostRequest start
+[INFO ] 2020-10-21 16:51:11.011 - POST request with body {"input":"3.0;4.0;5.0"} has code response 401 and response body {"timestamp":1603288270578,"status":401,"error":"Unauthorized","message":"No message available","path":"/triangle"}
+[INFO ] 2020-10-21 16:51:11.033 - noTokenPostRequest finish 
+[INFO ] 2020-10-21 16:51:12.018 - GET request to /all has code response 200 and response body [{"id":"45eae340-bf5e-448f-aa5b-e87e5fc08312","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}]
+[INFO ] 2020-10-21 16:51:12.021 - noTokenDeleteRequest start
+[INFO ] 2020-10-21 16:51:13.028 - POST request with body {"input":"3.0;4.0;5.0"} has code response 200 and response body {"id":"fd7ea680-598b-4547-9d1a-867c2acbb763","firstSide":3.0,"secondSide":4.0,"thirdSide":5.0}
+[INFO ] 2020-10-21 16:51:14.013 - DELETE request to /fd7ea680-598b-4547-9d1a-867c2acbb763 has code response 401 has code response {"timestamp":1603288273586,"status":401,"error":"Unauthorized","message":"No message available","path":"/triangle/fd7ea680-598b-4547-9d1a-867c2acbb763"}
+[INFO ] 2020-10-21 16:51:15.092 - DELETE request to /fd7ea680-598b-4547-9d1a-867c2acbb763 has code response 200 has code response 
+[INFO ] 2020-10-21 16:51:15.093 - noTokenDeleteRequest finish 
