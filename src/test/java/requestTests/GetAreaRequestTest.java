@@ -26,7 +26,7 @@ public class GetAreaRequestTest {
 
     @BeforeEach
     // Remove one triangle if list is full
-    public void onceExecuteBeforeAll() {
+    public void onceExecuteBeforeEach() {
         DataBaseActions.removeOneTriangleIfFull();
     }
 
