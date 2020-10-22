@@ -196,33 +196,49 @@ public class PostTriangleNegativeTest {
         assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
     }
 
-    @Test
-    @Severity(SeverityLevel.MINOR)
-    @Description("Post request with one letter (or string or mixed digits&char) were used instead number at sides - expect 422")
-    public void lettersInsteadNumberTest () {
+    @Step("Post request with string at sides - expect 422")
+    public static void postStringInsteadNumber(String side, String separator) {
 
         // create JSON request body
         JSONObject issueData = new JSONObject();
-        String separator = ",";
-        String sides = WRONG_TEXT_IN_SIDES + separator + WRONG_TEXT_IN_SIDES +  separator + WRONG_TEXT_IN_SIDES;
+        String sides = side + separator + side +  separator + side;
 
         issueData.put("separator", separator);
         issueData.put("input", sides );
-
         String requestBody = issueData.toString();
 
-        // main check text
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
         assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
 
-        // create JSON request body with mixed digits&char
-        sides = WRONG_MIXED_IN_SIDES + separator + WRONG_MIXED_IN_SIDES +  separator + WRONG_MIXED_IN_SIDES;
-        issueData.put("input", sides );
-        requestBody = issueData.toString();
+    }
 
-        // main check mixed
-        message = PostTriangleRequest.postUnprocessableEntity(requestBody);
+    @Step("Post request with string at sides (default separator - expect 422")
+    public static void postStringInsteadNumber(String side) {
+
+        // create JSON request body
+        JSONObject issueData = new JSONObject();
+        String separator = ";";
+        String sides = side + separator + side +  separator + side;
+
+        issueData.put("input", sides );
+        String requestBody = issueData.toString();
+
+        String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
         assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+
+    }
+
+    @Test
+    @Severity(SeverityLevel.MINOR)
+    @Description("Post request with one letter (or string or mixed digits&char) were used instead number at sides - expect 422 (4 options)")
+    public void stringInsteadNumberTest () {
+
+        //main check
+        postStringInsteadNumber(WRONG_TEXT_IN_SIDES);
+        postStringInsteadNumber(WRONG_MIXED_IN_SIDES);
+        postStringInsteadNumber(WRONG_TEXT_IN_SIDES, ";");
+        postStringInsteadNumber(WRONG_MIXED_IN_SIDES,";");
+
     }
 
     @Test //TODO: discuss expected result when there are more than two default separators
