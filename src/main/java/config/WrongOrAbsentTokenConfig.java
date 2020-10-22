@@ -28,4 +28,5 @@ public class WrongOrAbsentTokenConfig {
     public static RequestSpecification getNoTokenRequestSpec() {
         return noTokenRequestSpec;
     }
+
 }

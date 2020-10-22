@@ -454,5 +454,4 @@ public class PostTriangleRequestTest {
 
         assertEquals(longTriangle, responseTriangle);
     }
-
 }

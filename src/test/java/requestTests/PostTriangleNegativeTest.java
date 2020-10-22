@@ -295,5 +295,4 @@ public class PostTriangleNegativeTest {
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
         assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
     }
-
 }

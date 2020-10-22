@@ -36,7 +36,8 @@ public class DataBaseActions {
         String requestBody = TriangleToJSON.generateJSONForTriangle(Triangle.getDefaultTriangle());
         int code = 200;
         int i = 0;
-        while ((code == 200) & (i< MAX_TRIANGLE_POST_ATTEMPTS)) {
+        while ((code == 200) & (i< MAX_TRIANGLE_POST_ATTEMPTS)) { // QA can limit max numbers of post request at EvnConfig.MAX_TRIANGLE_POST_ATTEMPTS
+
             code = ValidRequests.post(requestBody).extract().statusCode();
             i++;
         }

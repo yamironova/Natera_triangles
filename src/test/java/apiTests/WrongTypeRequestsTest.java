@@ -34,7 +34,6 @@ public class WrongTypeRequestsTest {
         assertEquals(WRONG_METHOD_MESSAGE, message);
     }
 
-
     @Test
     @Severity(SeverityLevel.MINOR)
     @Description("Use 'post' instead 'get' at 'get one triangle', 'get area', 'get perimeter' requests return 405")

@@ -176,5 +176,4 @@ public class GetOneRequestTest {
         String message = GetOneRequest.getOneAbsent(WRONG_TRIANGLE_ID);
         assertEquals(NOT_FOUND_MESSAGE, message);
     }
-
 }

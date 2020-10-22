@@ -235,6 +235,7 @@ public class GetPerimeterRequestTest {
         // main check
         String message = GetPerimeterRequest.getOneAbsent(responseTriangle.getId());
         assertEquals(NOT_FOUND_MESSAGE, message);
+
     }
 
     @Test
@@ -245,5 +246,6 @@ public class GetPerimeterRequestTest {
         // main check
         String message = GetPerimeterRequest.getOneAbsent(WRONG_TRIANGLE_ID);
         assertEquals(NOT_FOUND_MESSAGE, message);
+
     }
 }
