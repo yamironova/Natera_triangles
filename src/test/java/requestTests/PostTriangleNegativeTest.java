@@ -320,7 +320,7 @@ public class PostTriangleNegativeTest {
         // create JSON request body
         JSONObject issueData = new JSONObject();
         Triangle triangle = Triangle.getDefaultTriangle();
-        String separator = ",";
+        String separator = ";";
         String sides = triangle.getFirstSide() +
                 separator + triangle.getSecondSide() +
                 separator + triangle.getThirdSide();
