@@ -1,7 +1,7 @@
 {
   "examples": [
     {
-      "timestamp": 1602174246834,
+      "timestamp": 1603366557161,
       "status": 401,
       "error": "Unauthorized",
       "message": "No message available",

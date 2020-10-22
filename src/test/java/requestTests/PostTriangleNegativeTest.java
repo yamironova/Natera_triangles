@@ -242,7 +242,7 @@ public class PostTriangleNegativeTest {
     }
 
     @Test //TODO: discuss expected result when there are more than two default separators
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.MINOR)
     @Description("Post request with more than two default separators - 4 sides instead 3 (example {\"input\": \"3.0;4.0;5.0;6.0\"} ) - expect 422")
     public void moreThanTwoDefaultSeparatorTest () {
 
@@ -265,7 +265,7 @@ public class PostTriangleNegativeTest {
     }
 
     @Test //TODO: discuss expected result when there are more than two separators
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.MINOR)
     @Description("Post request with more than two user separators - 4 sides instead 3 (example {\"separator\": \";\", \"input\": \"3.0;4.0;5.0;6.0\"} ) - expect 422")
     public void moreThanTwoUserSeparatorTest () {
 
@@ -289,9 +289,9 @@ public class PostTriangleNegativeTest {
     }
 
     @Test //TODO: discuss expected result when JSON format has some additional fields
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Post request with wrong JSON format (example {\"separator\": \";\", \"input\": \"3;4.0;5.0\", \"test\": \"test\"}) expect 422")
-    public void wrongJSONFormatTest () {
+    @Severity(SeverityLevel.MINOR)
+    @Description("Post request with wrong JSON format and user separator (example {\"separator\": \";\", \"input\": \"3;4.0;5.0\", \"test\": \"test\"}) expect 422")
+    public void wrongJSONFormatUserSeparatorTest () {
 
         // create JSON request body
         JSONObject issueData = new JSONObject();
@@ -302,6 +302,29 @@ public class PostTriangleNegativeTest {
                 separator + triangle.getThirdSide();
 
         issueData.put("separator", separator);
+        issueData.put("input", sides );
+        issueData.put("WRONG_TEXT", WRONG_TEXT_IN_SIDES);
+
+        String requestBody = issueData.toString();
+
+        // main check
+        String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
+        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+    }
+
+    @Test //TODO: discuss expected result when JSON format has some additional fields
+    @Severity(SeverityLevel.MINOR)
+    @Description("Post request with wrong JSON format with default separator (example {\"input\": \"3;4.0;5.0\", \"test\": \"test\"}) expect 422")
+    public void wrongJSONFormatDefaultSeparatorTest () {
+
+        // create JSON request body
+        JSONObject issueData = new JSONObject();
+        Triangle triangle = Triangle.getDefaultTriangle();
+        String separator = ",";
+        String sides = triangle.getFirstSide() +
+                separator + triangle.getSecondSide() +
+                separator + triangle.getThirdSide();
+
         issueData.put("input", sides );
         issueData.put("WRONG_TEXT", WRONG_TEXT_IN_SIDES);
 

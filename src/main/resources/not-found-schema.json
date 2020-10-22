@@ -1,7 +1,7 @@
 {
   "examples": [
     {
-      "timestamp": 1602188671823,
+      "timestamp": 1603366557161,
       "status": 404,
       "error": "Not Found",
       "exception": "com.natera.test.triangle.exception.NotFounException",
