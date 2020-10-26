@@ -16,8 +16,9 @@ public class EnvConfig {
     public static final String WRONG_METHOD_MESSAGE = "Request method 'POST' not supported";
     public static final String WRONG_TOKEN_ERROR = "Unauthorized";
     public static final String BIG_RESULT_FROM_RESPONSE = "Infinity";
-    public static final String UNPROCESSABLE_ENTITY_RESPONSE = "Cannot process input";
-    public static final String LIMIT_EXCEEDED_RESPONSE = "Limit exceeded";
+    public static final String UNPROCESSABLE_ENTITY_MESSAGE = "Cannot process input";
+    public static final String LIMIT_EXCEEDED_MESSAGE = "Limit exceeded";
+    public static final String BAD_REQUEST_MESSAGE = "Could not read document";
 
     /* MODE "Check Overflow"
      Description:
@@ -60,6 +61,6 @@ public class EnvConfig {
     public static final String WRONG_TEXT_IN_SIDES = "test";
     public static final String WRONG_MIXED_IN_SIDES = "1test";
     public static final String MANY_DIGITS_NUMBER = "1234567890" + "1234567890" + "1234567890";
-
+    public static final String WRONG_REQUEST_STRING = "{\"input\":\"3;4;5}";
 }
 

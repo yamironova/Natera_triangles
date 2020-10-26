@@ -60,4 +60,20 @@ public class PostTriangleRequest {
                 getString("message");
 
     }
+
+    // post request with wrong JSON (400)
+    public static String postBadRequest(String requestBody) {
+
+        ValidatableResponse response = ValidRequests.post(requestBody).
+                statusCode(400).
+                contentType(ContentType.JSON).
+                assertThat().
+                body(matchesJsonSchemaInClasspath("bad-request-schema.json"));
+
+        return response.
+                extract().
+                jsonPath().
+                getString("message");
+
+    }
 }

@@ -16,6 +16,7 @@ import utility.LogTestsExtension;
 
 import static config.EnvConfig.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(LogTestsExtension.class)
 public class PostTriangleNegativeTest {
@@ -40,14 +41,14 @@ public class PostTriangleNegativeTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Step("Post request when one side is zero return 422")
     public static void postOneZeroSide(Triangle triangleOneSideZero) {
         String requestBody = TriangleToJSON.generateJSONForTriangle(triangleOneSideZero);
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test  //TODO: discuss expected result when one sides is zero
@@ -75,7 +76,7 @@ public class PostTriangleNegativeTest {
     public static void postTwoSidesSumEqualThird(Triangle triangleTwoSidesSumEqualThird) {
         String requestBody = TriangleToJSON.generateJSONForTriangle(triangleTwoSidesSumEqualThird);
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test //TODO: discuss expected result when firstSide+secondSide equal third side
@@ -102,7 +103,7 @@ public class PostTriangleNegativeTest {
     public static void postTwoSidesSumLessThird(Triangle triangletwoSidesSumLessThird) {
         String requestBody = TriangleToJSON.generateJSONForTriangle(triangletwoSidesSumLessThird);
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test
@@ -139,7 +140,7 @@ public class PostTriangleNegativeTest {
                         Triangle.getDefaultTriangle()
                 )
         );
-        assertEquals(LIMIT_EXCEEDED_RESPONSE, message);
+        assertEquals(LIMIT_EXCEEDED_MESSAGE, message);
     }
 
     @Test //TODO: discuss expected result with separator "."
@@ -154,7 +155,7 @@ public class PostTriangleNegativeTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test
@@ -176,7 +177,7 @@ public class PostTriangleNegativeTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test //TODO: discuss expected result when sides are negative
@@ -193,7 +194,7 @@ public class PostTriangleNegativeTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Step("Post request with string at sides - expect 422")
@@ -208,7 +209,7 @@ public class PostTriangleNegativeTest {
         String requestBody = issueData.toString();
 
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
 
     }
 
@@ -224,7 +225,7 @@ public class PostTriangleNegativeTest {
         String requestBody = issueData.toString();
 
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
 
     }
 
@@ -261,7 +262,7 @@ public class PostTriangleNegativeTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test //TODO: discuss expected result when there are more than two separators
@@ -285,13 +286,13 @@ public class PostTriangleNegativeTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test //TODO: discuss expected result when JSON format has some additional fields
     @Severity(SeverityLevel.MINOR)
-    @Description("Post request with wrong JSON format and user separator (example {\"separator\": \";\", \"input\": \"3;4.0;5.0\", \"test\": \"test\"}) expect 422")
-    public void wrongJSONFormatUserSeparatorTest () {
+    @Description("Post request with some additional fields and user separator (example {\"separator\": \";\", \"input\": \"3;4.0;5.0\", \"test\": \"test\"}) expect 422")
+    public void moreFieldsAtJSONUserSeparatorTest() {
 
         // create JSON request body
         JSONObject issueData = new JSONObject();
@@ -309,13 +310,13 @@ public class PostTriangleNegativeTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test //TODO: discuss expected result when JSON format has some additional fields
     @Severity(SeverityLevel.MINOR)
-    @Description("Post request with wrong JSON format with default separator (example {\"input\": \"3;4.0;5.0\", \"test\": \"test\"}) expect 422")
-    public void wrongJSONFormatDefaultSeparatorTest () {
+    @Description("Post request with some additional fields with default separator (example {\"input\": \"3;4.0;5.0\", \"test\": \"test\"}) expect 422")
+    public void moreFieldsAtJSONDefaultSeparatorTest() {
 
         // create JSON request body
         JSONObject issueData = new JSONObject();
@@ -332,6 +333,16 @@ public class PostTriangleNegativeTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
+    }
+
+    @Test
+    @Severity(SeverityLevel.MINOR)
+    @Description("Post request with wrong JSON format (example {\"input\":\"3;4;5}) expect 400")
+    public void wrongJSONTest() {
+
+        // main check
+        String message = PostTriangleRequest.postBadRequest(WRONG_REQUEST_STRING);
+        assertTrue(message.contains(BAD_REQUEST_MESSAGE));
     }
 }

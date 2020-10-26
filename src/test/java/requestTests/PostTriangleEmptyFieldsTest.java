@@ -13,7 +13,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import requests.PostTriangleRequest;
 import utility.LogTestsExtension;
 
-import static config.EnvConfig.UNPROCESSABLE_ENTITY_RESPONSE;
+import static config.EnvConfig.UNPROCESSABLE_ENTITY_MESSAGE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(LogTestsExtension.class)
@@ -44,7 +44,7 @@ public class PostTriangleEmptyFieldsTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test
@@ -60,7 +60,7 @@ public class PostTriangleEmptyFieldsTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test
@@ -74,7 +74,7 @@ public class PostTriangleEmptyFieldsTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
 
@@ -96,7 +96,7 @@ public class PostTriangleEmptyFieldsTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test
@@ -117,7 +117,7 @@ public class PostTriangleEmptyFieldsTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test
@@ -138,7 +138,7 @@ public class PostTriangleEmptyFieldsTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Step("Post request when two side are empty (with user separator) return 422")
@@ -148,7 +148,7 @@ public class PostTriangleEmptyFieldsTest {
         issueData.put("separator", ";");
         String requestBody = issueData.toString();
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test
@@ -188,7 +188,7 @@ public class PostTriangleEmptyFieldsTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test
@@ -207,7 +207,7 @@ public class PostTriangleEmptyFieldsTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test
@@ -226,7 +226,7 @@ public class PostTriangleEmptyFieldsTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Step("Post request when two side are empty (with default separator) return 422")
@@ -235,7 +235,7 @@ public class PostTriangleEmptyFieldsTest {
         issueData.put("input", sides);
         String requestBody = issueData.toString();
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test
@@ -277,7 +277,7 @@ public class PostTriangleEmptyFieldsTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test
@@ -298,7 +298,7 @@ public class PostTriangleEmptyFieldsTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     @Test
@@ -316,7 +316,7 @@ public class PostTriangleEmptyFieldsTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 
     // with only one default separator between sides inside json (example {"input": "34;5"} ) (expected 422)
@@ -336,7 +336,7 @@ public class PostTriangleEmptyFieldsTest {
 
         // main check
         String message = PostTriangleRequest.postUnprocessableEntity(requestBody);
-        assertEquals(UNPROCESSABLE_ENTITY_RESPONSE, message);
+        assertEquals(UNPROCESSABLE_ENTITY_MESSAGE, message);
     }
 }
 

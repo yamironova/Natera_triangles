@@ -1,0 +1,20 @@
+{
+  "examples": [
+    {
+      "timestamp": 1603694968448,
+      "status": 400,
+      "error": "Bad Request",
+      "exception": "org.springframework.http.converter.HttpMessageNotReadableException",
+      "message": "Could not read document: Unexpected end-of-input in VALUE_STRING\n at [Source: java.io.PushbackInputStream@6583d931; line: 1, column: 33]\n at [Source: java.io.PushbackInputStream@6583d931; line: 1, column: 10] (through reference chain: com.natera.test.triangle.model.TriangleInput[\"input\"]); nested exception is com.fasterxml.jackson.databind.JsonMappingException: Unexpected end-of-input in VALUE_STRING\n at [Source: java.io.PushbackInputStream@6583d931; line: 1, column: 33]\n at [Source: java.io.PushbackInputStream@6583d931; line: 1, column: 10] (through reference chain: com.natera.test.triangle.model.TriangleInput[\"input\"])",
+      "path": "/triangle"
+    }
+  ],
+  "required": [
+    "timestamp",
+    "status",
+    "error",
+    "exception",
+    "message",
+    "path"
+  ]
+}
